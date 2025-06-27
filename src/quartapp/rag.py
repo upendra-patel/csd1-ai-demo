@@ -44,10 +44,10 @@ index_name = os.getenv("AZURE_COSMOS_INDEX_NAME", "VectorSearchIndex")
 vector_dimensions = 1536  # text-embedding-ada-002 uses a 1536-dimensional embedding vector
 num_lists = 100
 similarity = CosmosDBSimilarityType.COS
-#kind = CosmosDBVectorSearchType.VECTOR_HNSW
-#m = 16
-#ef_construction = 64
-#ef_search = 40
+kind = CosmosDBVectorSearchType.VECTOR_HNSW
+m = 16
+ef_construction = 64
+ef_search = 40
 
 
 def get_mongo_connection_string() -> str:
@@ -123,10 +123,10 @@ async def initialize_sk_memory_store(
             vector_dimensions=vector_dimensions,
             num_lists=num_lists,
             similarity=similarity,
-            #kind=kind,
-            #m=m,
-            #ef_construction=ef_construction,
-            #ef_search=ef_search,
+            kind=kind,
+            m=m,
+            ef_construction=ef_construction,
+            ef_search=ef_search,
         )
         logging.info("Finished updating Azure Cosmos DB Memory Store...")
 
